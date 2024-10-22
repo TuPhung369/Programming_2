@@ -1,0 +1,21 @@
+body {
+	font-family: Verdana;
+	font-size: 0.8em;
+	line-height: 1.4em;
+	padding-top: 10px;
+	padding-left: 20px;
+} 
+
+h1  {
+	font-size: 1.3em;
+}
+
+h2  {
+	font-size: 1em;
+}
+
+li a {
+  color: blue;
+  text-decoration: none;
+  font-size: 1.1em;
+}

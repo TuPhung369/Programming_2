@@ -1,0 +1,87 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Sending HTTP requests</title>
+    <link rel="stylesheet" type="text/css" href="css/WebAppExamples.css" />
+</head>
+<body>
+	<h1>FIRST WEB APP EXAMPLES 2.0</h1>
+	<h2>Sending HTTP GET and HTTP POST requests</h2>
+	
+	<ol>
+		<li>When you click on the link below, the <b>browser</b> sends an 
+			<b>HTTP GET</b> request for the Web resource to the server. 
+			On the server, the servlet container invokes the <b>FirstServlet</b> servlet's <b>doGet</b> method. 
+			The servlet's <b>doGet</b> method creates the response text to be sent to the browser. 
+			Finally, the server sends the response to the browser.<br/><br/>
+			
+			<a href="http://localhost:8080/First_WebApp_Examples/firstService">
+				http://localhost:8080/First_WebApp_Examples/firstService
+			</a>
+			<br/><br/>
+		</li>
+
+		<li>When you click on the link below, the <b>browser</b> sends an 
+			<b>HTTP GET</b> request for the Web resource to the server. 
+			On the server, the servlet container invokes the <b>SecondServlet</b> servlet's <b>doGet</b> method. 
+			This time, the request includes two	parameters in the URL. 
+			In the servlet, you can use the HttpRequest object's <b>getParameter</b>
+            method to obtain the parameter values. Either the getParameter method returns the parameter 
+            value as a String, or null if the parameter is not part of the request. 
+            The servlet's <b>doGet</b> method creates the response text to be sent to the browser. 
+            Finally, the server sends the response to the browser.<br/><br/>
+			
+			<a href="http://localhost:8080/First_WebApp_Examples/secondService?firstname=Joe&title=Mr">
+				http://localhost:8080/First_WebApp_Examples/secondService?firstname=Joe&amp;title=Mr</a>
+			<br/><br/>
+		</li>
+
+		<li> When you click on the button below, the <b>browser</b> sends an
+			<b>HTTP POST</b> request for the Web resource 
+			<b>http://localhost:8080/First_WebApp_Examples/thirdService</b>.
+			On the server, the servlet container invokes the <b>ThirdServlet</b> servlet's <b>doPost</b> method. 
+			Form parameters	are passed to the servlet as name/value pairs in the <b>HTTP POST</b> request.
+			They are not included in the URL. 
+			In the servlet, you can use the HttpRequest object's <b>getParameter</b>
+            method to obtain the parameter values.
+			The servlet's <b>doPost</b> method creates the response text to be sent to the browser.
+			Finally, the server sends the response to the browser.				
+			<br/><br/>
+			
+			<form action="http://localhost:8080/First_WebApp_Examples/thirdService" method="POST">
+				<label>First name: </label> 
+				<input type="text" id="txtfirstName" name="txtFirstName" size="10" />
+				<label>Last name: </label>
+				<input type="text" id="txtlastName" name="txtLastName" size="10" />							 
+				<input id="btSubmit" type="submit" value="Send a POST request to the server" />
+			</form>
+			
+			<br/>
+		</li>
+	</ol>
+	
+	<h2>Full stack example (Front-end: HTML + JavaScript  &lt;=&gt;  Backend: Java Servlet)</h2>
+	<ol>
+		<li>When you click on the button below, the <b>browser</b> invokes our own client-side JavaScript function (<i>getGreetingFromServer</i>).
+		</li>
+		<li>The JavaScript function uses the <b>Fetch</b> function to send a <b>HTTP GET</b> request 
+		    to the server (the URL is <i>http://localhost:8080/First_WebApp_Examples/firstService</i>)
+		</li>
+		<li>On the server, the servlet container invokes the <b>FirstServlet</b> servlet's <b>doGet</b> method. The servlet's <b>doGet</b> 
+		    method creates the response text to be sent to the client. 
+		</li>
+		<li>When our JavaScript code has received the response from the server, it inserts the received text 
+		in a div element <b>on the current web page</b>.</li>
+	
+	</ol>
+	<div>
+		<button id="btGreetMe" name="btGreetMe" onClick="getGreetingFromServer();">Greet me!</button>
+		<button id="btClearGreeting" name="btClearGreeting" onClick="clearGreeting();">Clear greeting</button>
+		<br/><br/>
+		<div id="divOutput"></div>
+	</div>
+	
+	<script src="First_WebApp_Examples.js"></script>
+</body>
+</html>
